@@ -4,6 +4,7 @@ import TaskListComponent from './components/container/task_list';
 import Ejemplo1 from './hooks/Ejemplo1';
 import Ejemplo2 from './hooks/Ejemplo2';
 import MiComponenteConContexto from './hooks/Ejemplo3';
+import Ejemplo4 from './hooks/Ejemplo4';
 
 function App() {
   return (
@@ -13,7 +14,12 @@ function App() {
         {/* <TaskListComponent></TaskListComponent> */}
         {/* <Ejemplo1></Ejemplo1> */}
         {/* <Ejemplo2></Ejemplo2> */}
-        <MiComponenteConContexto></MiComponenteConContexto>
+        {/* <MiComponenteConContexto></MiComponenteConContexto> */}
+        <Ejemplo4 nombre='Marti c' >
+            <h2>
+              Todo es tradato  props.children
+            </h2>
+        </Ejemplo4>
       </header>
     </div>
   );
