@@ -1,4 +1,3 @@
-
 import {LEVELS} from "./levels.enum.js"
 export  class Task{
     name='';
