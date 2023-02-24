@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {Task} from "../../models/task.class"
 // Importamos la hoja de estilos
-import '../../styles/task.css'
+import '../../styles/task.scss'
 const TaskComponent = ({ task }) => {
   //ESTO SE USA CUANDO UNA TAREA DESAPARECE O LA BORREMOS , MODIFIQUEMOS 
   useEffect(() => {
