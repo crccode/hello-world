@@ -11,17 +11,17 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>your data</h1>
-        {/* <TaskListComponent></TaskListComponent> */}
+        {/* <h1>your data</h1> */}
+        <TaskListComponent></TaskListComponent>
         {/* <Ejemplo1></Ejemplo1> */}
         {/* <Ejemplo2></Ejemplo2> */}
         {/* <MiComponenteConContexto></MiComponenteConContexto> */}
-        <Ejemplo4 nombre='Marti c' >
+        {/* <Ejemplo4 nombre='Marti c' >
             <h2>
               Todo es tradato  props.children
             </h2>
         </Ejemplo4>
-        <Greetingstyled name="Marta"></Greetingstyled>
+        <Greetingstyled name="Marta"></Greetingstyled> */}
       </header>
     </div>
   );

@@ -5,9 +5,10 @@ import TaskComponent from '../pure/task';
 const TaskListComponent= () => {
 
     //Creamos una lista de tareas para renderizar el contenido 
-    const defaultTask = new Task('Example','Default',false,LEVELS.NORMAL);
+    const defaultTask1 = new Task('Example1','Default1',true,LEVELS.NORMAL);
+    const defaultTask2 = new Task('Example2','Default2',false,LEVELS.URGENT);
     //Estado del componente
-    const [tasks, setTasks] = useState([defaultTask])
+    const [tasks, setTasks] = useState([defaultTask1,defaultTask2])
     //Este componente para cargar las tareas atraves de http, por defecto true siempre carga 
     const [loading, setLoading] = useState(true)
 
@@ -31,7 +32,41 @@ const TaskListComponent= () => {
     }
     return (
         <div>
-            <TaskComponent task={defaultTask}></TaskComponent>
+            <div className='col-12'>
+                <div className='card'>
+                    <div className='card-header p-3'>
+                        <h5>
+                            Your tasks:
+                        </h5>
+                    </div>
+                    <div className='card-body' data-mdb-perfect-scrollbar='true' style={ {position: 'relative', heidht: '400px'}}>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope='col'>Title</th>
+                                    <th scope='col'>Description</th>
+                                    <th scope='col'>Priority</th>
+                                    <th scope='col'>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {/* Cuando hacemos iteraciones es recomendable pasarle el key  */}
+                                { tasks.map((task, index) => {
+                                    return (                                  
+                                            <TaskComponent 
+                                                key={index} 
+                                                task={task}
+                                            >
+                                            </TaskComponent>
+                                        )
+                                    }
+                                )}
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>           
+            </div>
         </div>
       );
     
