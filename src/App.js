@@ -6,6 +6,7 @@ import Ejemplo2 from './hooks/Ejemplo2';
 import MiComponenteConContexto from './hooks/Ejemplo3';
 import Ejemplo4 from './hooks/Ejemplo4';
 import Greetingstyled from './components/pure/greetingStyled';
+import Father from './components/container/father';
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
             </h2>
         </Ejemplo4>
         <Greetingstyled name="Marta"></Greetingstyled> */}
+        {/* Gestion eventoa */}
+        <Father></Father>
       </header>
     </div>
   );

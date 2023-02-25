@@ -14,7 +14,6 @@ const TaskComponent = ({ task }) => {
   }, [task]);  //[task] Para que se ejecute solo una ves 
   //}); esto es para que se ejecute para todos los cambios
 
-
    /**
      * Function that returns a Badge
      * depending on the level of the task
@@ -49,15 +48,13 @@ const TaskComponent = ({ task }) => {
    /**
      * Function that returns icon depending on completion of the task
      */
-  function taskCompletedIcon(){
-      if(task.completed){
-          return (<i  className='bi-toggle-on task-action' style={{color: 'green'}}></i>)
-      }else{
-          return (<i className='bi-toggle-off task-action' style={{color: 'grey'}}></i>)
-      }
-  }
-
-  
+    function taskCompletedIcon(){
+        if(task.completed){
+            return (<i  className='bi-toggle-on task-action' style={{color: 'green'}}></i>)
+        }else{
+            return (<i className='bi-toggle-off task-action' style={{color: 'grey'}}></i>)
+        }
+    }
 
   return (
     <tr className='fw-normal'>
