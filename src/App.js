@@ -24,7 +24,7 @@ function App() {
         </Ejemplo4>
         <Greetingstyled name="Marta"></Greetingstyled> */}
         {/* Gestion eventoa */}
-        <Father></Father>
+        {/* <Father></Father> */}
       </header>
     </div>
   );

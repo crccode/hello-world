@@ -4,7 +4,7 @@ import {Task} from "../../models/task.class"
 // Importamos la hoja de estilos
 import '../../styles/task.scss'
 import { LEVELS } from '../../models/levels.enum';
-const TaskComponent = ({ task }) => {
+const TaskComponent = ({ task, complete}) => {
   //ESTO SE USA CUANDO UNA TAREA DESAPARECE O LA BORREMOS , MODIFIQUEMOS 
   useEffect(() => {
       console.log('Created Task')
@@ -50,9 +50,9 @@ const TaskComponent = ({ task }) => {
      */
     function taskCompletedIcon(){
         if(task.completed){
-            return (<i  className='bi-toggle-on task-action' style={{color: 'green'}}></i>)
+            return (<i onClick={()=>complete(task)} className='bi-toggle-on task-action' style={{color: 'green'}}></i>)
         }else{
-            return (<i className='bi-toggle-off task-action' style={{color: 'grey'}}></i>)
+            return (<i onClick={()=>complete(task)} className='bi-toggle-off task-action' style={{color: 'grey'}}></i>)
         }
     }
 
@@ -86,7 +86,8 @@ const TaskComponent = ({ task }) => {
 
 TaskComponent.propTypes = {
     // Lo que recibe el props no es una cadena TextDecoder, numero es task
-    task: PropTypes.instanceOf(Task)
+    task: PropTypes.instanceOf(Task).isRequired,
+    complete: PropTypes.func.isRequired
 };
 
 export default TaskComponent

@@ -26,9 +26,21 @@ const TaskListComponent= () => {
             console.log('TaskList component is going to unmount...')
         }
     }, [tasks])
-
-    const changeCompleted = (id) => {
-        console.log('Cambiar el estado de la tarea');
+    //Pasmmos esta funcion al hijo atraves de props. Creamos un props en task llamado complete
+    function completeTask(task){
+        /**
+         * Buscamos el indice, sacamos el indice de la tarea
+         * tempTask Son todas las tareas que hay
+         * Modificamos la tarea y cambiamos el valor
+         * Actualiza el componente 
+         */
+        console.log('Complete this Task:', task);
+        const index = tasks.indexOf(task);
+        const tempTasks = [...tasks];
+        tempTasks[index].completed = !tempTasks[index].completed;
+        // We update the state of the component with the new list of tasks and it will update the
+        // Iteration of the tasks in order to show the task updated
+        setTasks(tempTasks);
     }
     return (
         <div>
@@ -56,6 +68,7 @@ const TaskListComponent= () => {
                                             <TaskComponent 
                                                 key={index} 
                                                 task={task}
+                                                complete={completeTask}
                                             >
                                             </TaskComponent>
                                         )
