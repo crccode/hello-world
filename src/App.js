@@ -7,6 +7,7 @@ import MiComponenteConContexto from './hooks/Ejemplo3';
 import Ejemplo4 from './hooks/Ejemplo4';
 import Greetingstyled from './components/pure/greetingStyled';
 import Father from './components/container/father';
+import Registerformik from './components/pure/forms/registerFormik';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Greetingstyled name="Marta"></Greetingstyled> */}
         {/* Gestion eventoa */}
         {/* <Father></Father> */}
+        <Registerformik></Registerformik>
       </header>
     </div>
   );
