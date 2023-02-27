@@ -8,14 +8,16 @@ import PropTypes from 'prop-types';
 import { LEVELS } from '../../../models/levels.enum';
 import { Task } from '../../../models/task.class';
 
+// Recibe Prop Type add
 const Taskform = ({add, length}) => {
-
+    // Hacemos una referencia para los campos que queremos completar 
     const nameRef = useRef('');
     const descriptionRef = useRef('');
     const levelRef = useRef(LEVELS.NORMAL);
-
+    // Esta fucnion recibe el evento es por defecto ya que va a ser atraves del submit 
     function addTask(e){
         e.preventDefault();
+        // Creamos una tarea con estos nuevos campos 
         const newTask = new Task(
             nameRef.current.value,
             descriptionRef.current.value,

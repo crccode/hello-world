@@ -49,7 +49,7 @@ const TaskListComponent= () => {
         tempTasks.splice(index,1);
         setTasks(tempTasks);
     }
-
+    // Le pasamos al hijo task
     function addTask(task){
         console.log('Detele this Task:', task);
         const tempTasks = [...tasks];
@@ -122,6 +122,7 @@ const TaskListComponent= () => {
                     </div>
                 </div>
             </div>
+            {/* Colocamos el formulario */}
             <Taskform add={addTask} length={tasks.length}></Taskform>
         </div>
     );
