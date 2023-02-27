@@ -55,25 +55,37 @@ const TaskComponent = ({ task, complete, remove }) => {
             return (<i onClick={()=>complete(task)} className='bi-toggle-off task-action' style={{color: 'grey'}}></i>)
         }
     }
+    // ESTILOS DENTRO DE UNA CONSTATNTE 
+    const taskCompleted = {
+        color: 'gray',
+        fontWeight: 'bold',
+        textDecoration: 'line-through'
+    }
 
-  return (
-    <tr className='fw-normal'>
-      <th>
-          <span className='ms-2'>{task.name}</span>
-      </th>
-      <td className='align-middle'>
-          <span>{task.description}</span>
-      </td>
-      <td className='align-middle'>
-          {/* Execution of function to return badge element */}
-          {taskLevelBadge()}
-      </td>
-      <td className='align-middle'>
-          {/* Execution of function to return icon depending on completion */}
-          {taskCompletedIcon()}
-          <i className='bi-trash task-action' style={{color: 'tomato'}} onClick={() => remove(task)}></i>
-      </td>
-    </tr>
+    const taskPending = {
+        fontWeight: 'bold',
+        color: 'tomato'
+    }
+
+    return (
+        <tr className='fw-normal' style={task.completed ? taskCompleted : taskPending}>
+
+        <th>
+            <span className='ms-2'>{task.name}</span>
+        </th>
+        <td className='align-middle'>
+            <span>{task.description}</span>
+        </td>
+        <td className='align-middle'>
+            {/* Execution of function to return badge element */}
+            {taskLevelBadge()}
+        </td>
+        <td className='align-middle'>
+            {/* Execution of function to return icon depending on completion */}
+            {taskCompletedIcon()}
+            <i className='bi-trash task-action' style={{color: 'tomato'}} onClick={() => remove(task)}></i>
+        </td>
+        </tr>
 
     // <div>
     //   <h2 className='task-name'>Nombre: { task.name }</h2>

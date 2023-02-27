@@ -56,7 +56,7 @@ const TaskListComponent= () => {
         tempTasks.push(task);
         setTasks(tempTasks);
     }
-    
+    // Colocamos la tabla en una constante 
     const Table = () => {
         return (
             <table>
@@ -85,7 +85,7 @@ const TaskListComponent= () => {
             </table>
         )
     }
-
+    // Guardamos el componente en una variablr 
     let tasksTable;
 
     if(tasks.length > 0){
