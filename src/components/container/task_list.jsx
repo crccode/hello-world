@@ -42,48 +42,90 @@ const TaskListComponent= () => {
         // Iteration of the tasks in order to show the task updated
         setTasks(tempTasks);
     }
+    function deleteTask(task){
+        console.log('Detele this Task:', task);
+        const index = tasks.indexOf(task);
+        const tempTasks = [...tasks];
+        tempTasks.splice(index,1);
+        setTasks(tempTasks);
+    }
+
+    function addTask(task){
+        console.log('Detele this Task:', task);
+        const tempTasks = [...tasks];
+        tempTasks.push(task);
+        setTasks(tempTasks);
+    }
+    
+    const Table = () => {
+        return (
+            <table>
+                <thead>
+                    <tr>
+                        <th scope='col'>Title</th>
+                        <th scope='col'>Description</th>
+                        <th scope='col'>Priority</th>
+                        <th scope='col'>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    { tasks.map((task, index) => {
+                        return (
+                                <TaskComponent 
+                                    key={index} 
+                                    task={task}
+                                    complete={completeTask}
+                                    remove = {deleteTask}
+                                >
+                                </TaskComponent>
+                            )
+                        }
+                    )}
+                </tbody>
+            </table>
+        )
+    }
+
+    let tasksTable;
+
+    if(tasks.length > 0){
+        tasksTable = <Table></Table>
+    }else{
+        tasksTable = (
+        <div>
+            <h3> There are no tasks to show</h3>
+            <h4>Please, create one</h4>
+        </div>
+        )
+    }
+
+    const loadingStyle = {
+        color: 'grey',
+        fontSize: '30px',
+        fontWeight: 'bold'
+    }
+
     return (
         <div>
             <div className='col-12'>
                 <div className='card'>
+                    {/* Card Header (title) */}
                     <div className='card-header p-3'>
                         <h5>
-                            Your tasks:
+                            Your Tasks:
                         </h5>
                     </div>
-                    <div className='card-body' data-mdb-perfect-scrollbar='true' style={ {position: 'relative', heidht: '400px'}}>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th scope='col'>Title</th>
-                                    <th scope='col'>Description</th>
-                                    <th scope='col'>Priority</th>
-                                    <th scope='col'>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {/* Cuando hacemos iteraciones es recomendable pasarle el key  */}
-                                { tasks.map((task, index) => {
-                                    return (                                  
-                                            <TaskComponent 
-                                                key={index} 
-                                                task={task}
-                                                complete={completeTask}
-                                            >
-                                            </TaskComponent>
-                                        )
-                                    }
-                                )}
-                            </tbody>
-                        </table>
+                    {/* Card Body (content) */}
+                    <div className='card-body' data-mdb-perfect-scrollbar='true' style={ {position: 'relative', height: '400px'} }>
+                        {/* TODO: Add Loading Spinner */}
+                        {loading ? (<p style={loadingStyle}>Loading tasks...</p>) : tasksTable}
                     </div>
-                    <Taskform></Taskform>
-                </div>           
+                </div>
             </div>
+            <Taskform add={addTask} length={tasks.length}></Taskform>
         </div>
     );
-    
 };
 
-export default TaskListComponent;
 
+export default TaskListComponent;

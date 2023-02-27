@@ -4,7 +4,7 @@ import {Task} from "../../models/task.class"
 // Importamos la hoja de estilos
 import '../../styles/task.scss'
 import { LEVELS } from '../../models/levels.enum';
-const TaskComponent = ({ task, complete}) => {
+const TaskComponent = ({ task, complete, remove }) => {
   //ESTO SE USA CUANDO UNA TAREA DESAPARECE O LA BORREMOS , MODIFIQUEMOS 
   useEffect(() => {
       console.log('Created Task')
@@ -71,7 +71,7 @@ const TaskComponent = ({ task, complete}) => {
       <td className='align-middle'>
           {/* Execution of function to return icon depending on completion */}
           {taskCompletedIcon()}
-          <i className='bi-trash task-action' style={{color: 'tomato'}}></i>
+          <i className='bi-trash task-action' style={{color: 'tomato'}} onClick={() => remove(task)}></i>
       </td>
     </tr>
 
@@ -87,7 +87,8 @@ const TaskComponent = ({ task, complete}) => {
 TaskComponent.propTypes = {
     // Lo que recibe el props no es una cadena TextDecoder, numero es task
     task: PropTypes.instanceOf(Task).isRequired,
-    complete: PropTypes.func.isRequired
+    complete: PropTypes.func.isRequired,
+    remove: PropTypes.func.isRequired,
 };
 
 export default TaskComponent
